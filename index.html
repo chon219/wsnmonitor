@@ -1,0 +1,68 @@
+<!doctype html>
+<html ng-app="WSNApp">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WSN Monitor</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/pure-min.css">
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="css/style-ie.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="css/style.css">
+    <!--<![endif]-->
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/angular/angular.min.js"></script>
+    <script src="js/angular/angular-route.js"></script>
+    <script type="text/javascript">
+        angular.element(document.getElementsByTagName('head')).append(angular.element('<base href="' + window.location.pathname + '" />'));
+    </script>
+    <script src="js/highstock.src.js"></script>
+    <script src="js/highcharts-ng.js"></script>
+</head>
+<body ng-controller="MainCtrl">
+<div id="layout">
+    <!-- Menu toggle -->
+    <a href="#menu" id="menuLink" class="menu-link">
+        <!-- Hamburger icon -->
+        <span></span>
+    </a>
+    <div id="menu">
+        <div class="pure-menu pure-menu-open">
+            <a class="pure-menu-heading" href="#!">WSN Monitor</a>
+            <ul>
+                <li ng-repeat="gw in gatewaylist" ng-class="{'menu-item-divided': gw.id==gateway.id, 'pure-menu-selected': gw.id==gateway.id}">
+                <a href="" ng-click="getGateway(gw)">{{gw.gwname}}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="main" ng-if="gateway">
+        <div class="header">
+            <div class="page-header">
+                <h1>
+                    Gateway
+                    <small>{{gateway.ipaddr}}</small>
+                </h1>
+            </div>
+            <div class="pure-menu pure-menu-open pure-menu-horizontal">
+                <ul>
+                    <li ng-class="{'pure-menu-selected':gateway.selected=='realtime'}"><a href="#!realtime">Realtime</a></li>
+                    <li ng-class="{'pure-menu-selected':gateway.selected=='history'}"><a href="#!history">History</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content">
+            <br/>
+            <div ng-view>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/ui.js"></script>
+<script src="js/controllers.js"></script>
+</body>
+</html>

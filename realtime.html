@@ -1,0 +1,27 @@
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Location</th>
+                        <th>Status</th>
+                        <th>Temperature</th>
+                        <th>Humidity</th>
+                        <th>Light</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="sensor in sensorlist" ng-controller="SensorCtrl">
+                        <td>{{sensor.id}}</td>
+                        <td>{{sensor.nodename}}</td>
+                        <td>{{sensor.location}}</td>
+                        <td>
+                            <span class="label label-success" ng-if="sensor.status==true">running</span>
+                            <span class="label label-danger" ng-if="sensor.status==false">stopped</span>
+                        </td>
+                        <td>{{sensor.data.temperature}}</td>
+                        <td>{{sensor.data.humidity}}</td>
+                        <td>{{sensor.data.light}}</td>
+                    </tr>
+                </tbody>
+            </table>
