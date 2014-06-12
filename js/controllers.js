@@ -1,6 +1,6 @@
 var app = angular.module('WSNApp', ['ngRoute', 'highcharts-ng']);
 
-var baseurl = "http://localhost/interface/";
+var baseurl = "/interface/";
 
 app.controller('MainCtrl', ['$scope', '$http', '$location', function($scope, $http, $location){
     $http.get(baseurl+"gatewaylist.json")
