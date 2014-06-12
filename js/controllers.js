@@ -19,6 +19,10 @@ app.controller('MainCtrl', ['$scope', '$http', '$location', function($scope, $ht
             return 0;
         }
     }
+    $scope.reset = function() {
+        $scope.gateway = null; 
+        $location.path("/");
+    }
     $scope.getGateway = function(gateway){
         $scope.gateway = gateway;
         var gwname = gateway.gwname;

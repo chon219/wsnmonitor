@@ -31,7 +31,7 @@
     </a>
     <div id="menu">
         <div class="pure-menu pure-menu-open">
-            <a class="pure-menu-heading" href="#!">WSN Monitor</a>
+            <a class="pure-menu-heading" href="" ng-click="reset()">WSN Monitor</a>
             <ul>
                 <li ng-repeat="gw in gatewaylist" ng-class="{'menu-item-divided': gw.id==gateway.id, 'pure-menu-selected': gw.id==gateway.id}">
                 <a href="" ng-click="getGateway(gw)">{{gw.gwname}}</a>
