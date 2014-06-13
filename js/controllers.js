@@ -102,7 +102,7 @@ app.controller('HistoryCtrl', ['$scope', '$http', function($scope, $http){
                     var time = new Date(row.time).getTime() + 8*60*60*1000;
                     var temperature = Math.round(parseFloat(row.temperature)*100)/100;
                     var humidity = Math.round(parseFloat(row.humidity)*100)/100;
-                    if(temperature < 1000 && humidity < 1000) {
+                    if(temperature =< 50 && temperature >= -20 && humidity =< 300 && humidity >= 0) {
                         temperatureData.push([time, temperature]);
                         humidityData.push([time, humidity]);
                     }
